@@ -1,0 +1,22 @@
+<div id="outer">
+  <div id="is-it-boiling"></div>
+</div>
+<script>
+  (function() {
+    var targetDate = moment("20141202", "YYYYMMDD");
+    var now = moment(0, 'HH');
+    var $contents = $('#is-it-boiling');
+    if ( now.isSame(targetDate, 'day') ) {
+      $contents.html("Get your ass to Boiling Crab");
+    } else if ( now.isBefore(targetDate) ) {
+      var daysLeft = targetDate.diff(now, 'days');
+      if ( daysLeft <= 1 ) {
+        $contents.html("Just wait another goddamn day");
+      } else {
+        $contents.html("Just wait another fucking " + daysLeft + " days");
+      }
+    } else {
+      $contents.html("Hope you enjoyed the fucking heat");
+    }
+  })();
+</script>
